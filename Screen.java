@@ -305,7 +305,7 @@ public class Screen extends JPanel implements ActionListener
     //System.out.println("screen piece id is "+screenPieceID);
     if(screenPieceID.equals("wp"))
     {
-      //System.out.println("fuck the world");
+      //System.out.println
       for(int i = 0; i<wpawn.size(); i++)
       {
         //I KNOW THESE ARE SWITCHED BUT I MIXED THEM UP BEFORE AND IDK WHERE SORRY
@@ -324,6 +324,87 @@ public class Screen extends JPanel implements ActionListener
         }
       }
     }
+
+    if(screenPieceID.equals("bp"))
+    {
+      //System.out.println
+      for(int i = 0; i<bpawn.size(); i++)
+      {
+        //I KNOW THESE ARE SWITCHED BUT I MIXED THEM UP BEFORE AND IDK WHERE SORRY
+
+
+        int tempRow = bpawn.get(i).returnRow();
+        int tempCol = bpawn.get(i).returnCol();
+       //System.out.println("tempRow taken from wpawn"+tempRow+" inputted row "+screenPieceLocC);
+
+      //  System.out.println("tempCol taken from wpawn"+tempCol+" inputted col "+screenPieceLocR);
+
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          bpawn.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+
+    if(screenPieceID.equals("wr"))
+    {
+      //System.out.println
+      for(int i = 0; i<wrook.size(); i++)
+      {
+        int tempRow = wrook.get(i).returnRow();
+        int tempCol = wrook.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          wrook.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+    if(screenPieceID.equals("br"))
+    {
+      //System.out.println
+      for(int i = 0; i<brook.size(); i++)
+      {
+        int tempRow = brook.get(i).returnRow();
+        int tempCol = brook.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          brook.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+
+    if(screenPieceID.equals("bb"))
+    {
+      //System.out.println
+      for(int i = 0; i<bbishop.size(); i++)
+      {
+        int tempRow = bbishop.get(i).returnRow();
+        int tempCol = bbishop.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          bbishop.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+    if(screenPieceID.equals("wb"))
+    {
+      //System.out.println
+      for(int i = 0; i<wbishop.size(); i++)
+      {
+        int tempRow = wbishop.get(i).returnRow();
+        int tempCol = wbishop.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          wbishop.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+
 
 
   }

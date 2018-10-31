@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Checker
 {
 
@@ -12,7 +14,7 @@ public class Checker
 
     public boolean wpRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
     {
-      game[5][4] = "bx";
+
       if(oldRow==6)
       {
         if(newRow!=5&&newRow!=4)
@@ -64,10 +66,322 @@ public class Checker
             return false;
           }
       }
+      return true;
+    }
+
+    public boolean brRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(newRow!=oldRow && newCol!=oldCol)
+      {
+        return false;
+      }
+
+      if(newRow>oldRow)
+      {
+        for(int i = oldRow+1; i<newRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+      if(oldRow>newRow)
+      {
+        for(int i = newRow; i<oldRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      if(newCol>oldCol)
+      {
+        for(int i = oldCol+1; i<newCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            System.out.println("newRow "+newRow+" i "+i);
+            System.out.println(game[newRow][i]);
+            return false;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        for(int i = newCol; i<oldCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='b')
+      {
+        return false;
+      }
 
 
 
 
+
+      return true;
+    }
+
+    public boolean wrRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(newRow!=oldRow && newCol!=oldCol)
+      {
+        return false;
+      }
+
+      if(newRow>oldRow)
+      {
+        for(int i = oldRow+1; i<newRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+      if(oldRow>newRow)
+      {
+        for(int i = newRow; i<oldRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      if(newCol>oldCol)
+      {
+        for(int i = oldCol+1; i<newCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            System.out.println("newRow "+newRow+" i "+i);
+            System.out.println(game[newRow][i]);
+            return false;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        for(int i = newCol; i<oldCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='w')
+      {
+        return false;
+      }
+
+
+
+
+
+      return true;
+    }
+
+    public boolean wbRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(Math.abs(newCol-oldCol)!=Math.abs(newRow-oldRow))
+      {
+        return false;
+      }
+
+      if(newCol>oldCol)
+      {
+        if(newRow>oldRow)
+        {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow+j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+        }
+        else if(oldRow>newRow)
+        {
+          int j = 1;
+          for(int i = oldCol+1; i<newCol; i++)
+          {
+            if(!game[oldRow-j][oldCol+j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        if(newRow>oldRow)
+        {
+          int j = 1;
+          for(int i = newCol+1; i<oldCol; i++)
+          {
+            if(!game[oldRow+j][oldCol-j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+        else if(oldRow>newRow)
+        {
+          int j = 1;
+          for(int i = newCol+1; i<oldCol; i++)
+          {
+            if(!game[oldRow-j][oldCol-j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+      }
+      return true;
+    }
+    public boolean bbRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(Math.abs(newCol-oldCol)!=Math.abs(newRow-oldRow))
+      {
+        return false;
+      }
+
+      if(newCol>oldCol)
+      {
+        if(newRow>oldRow)
+        {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow+j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+        }
+        else if(oldRow>newRow)
+        {
+          int j = 1;
+          for(int i = oldCol+1; i<newCol; i++)
+          {
+            if(!game[oldRow-j][oldCol+j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        if(newRow>oldRow)
+        {
+          int j = 1;
+          for(int i = newCol+1; i<oldCol; i++)
+          {
+            if(!game[oldRow+j][oldCol-j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+        else if(oldRow>newRow)
+        {
+          int j = 1;
+          for(int i = newCol+1; i<oldCol; i++)
+          {
+            if(!game[oldRow-j][oldCol-j].equals("xx"))
+            {
+              return false;
+            }
+            j++;
+          }
+        }
+      }
+      return true;
+    }
+
+
+
+    public boolean bpRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+
+      if(oldRow==1)
+      {
+        if(newRow!=3&&newRow!=2)
+        {
+
+          System.out.println("exited here 1");
+          return false;
+        }
+        if(newRow==3)
+        {
+          if(newCol!=oldCol)
+          {
+                System.out.println(newCol+"new old"+oldCol);
+            return false;
+
+          }
+          if(!game[newRow][newCol].equals("xx"))
+          {
+              if(!game[2][newCol].equals("xx")){
+                System.out.println("exited here 3");
+              return false;
+
+              }
+
+          }
+          else{
+            return true;}
+        }
+      }
+
+      if(newRow!=oldRow+1)
+      {
+        return false;
+      }
+
+      if(newCol==oldCol)
+      {
+          if(!game[newRow][newCol].equals("xx"))
+          {
+            return false;
+          }
+      }
+      if(newCol-oldCol==1||newCol-oldCol==-1)
+      {
+          String x = game[newRow][newCol];
+          System.out.println("x = "+x);
+          if(x.charAt(0)!='w')
+          {
+            return false;
+          }
+      }
       return true;
     }
 
@@ -165,7 +479,31 @@ public class Checker
           {
             return wpRules(game, newRow, newCol, oldRow, oldCol);
           }
-          return false;
+          if(checker.equals("bp"))
+          {
+            return bpRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("wr"))
+          {
+            return wrRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("br"))
+          {
+            return brRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("wb"))
+          {
+            return wbRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("bb"))
+          {
+            return bbRules(game, newRow, newCol, oldRow, oldCol);
+          }
+
+
+
+
+          return true;
         }
 
 
