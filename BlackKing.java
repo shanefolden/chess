@@ -31,6 +31,17 @@ public class BlackKing extends JPanel
         //System.out.println(row+" "+col);
     }
 
+    public int returnRow()
+    {
+        return row;
+    }
+    public int returnCol()
+    {
+        return 7-col;
+    }
+
+
+
     public void drawMe(Graphics g)
     {
          //super.paintComponent(g);

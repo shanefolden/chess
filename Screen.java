@@ -405,6 +405,36 @@ public class Screen extends JPanel implements ActionListener
       }
     }
 
+    if(screenPieceID.equals("wk"))
+    {
+      //System.out.println
+      for(int i = 0; i<wking.size(); i++)
+      {
+        int tempRow = wking.get(i).returnRow();
+        int tempCol = wking.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          wking.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+    if(screenPieceID.equals("bk"))
+    {
+      //System.out.println
+      for(int i = 0; i<bking.size(); i++)
+      {
+        int tempRow = bking.get(i).returnRow();
+        int tempCol = bking.get(i).returnCol();
+        if(tempRow==oldScreenPieceLocC && tempCol==oldScreenPieceLocR)
+        {
+          bking.get(i).getPosition(newScreenPieceLocC, newScreenPieceLocR);
+  //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
+        }
+      }
+    }
+
+
 
 
   }

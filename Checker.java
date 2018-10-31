@@ -192,10 +192,6 @@ public class Checker
         return false;
       }
 
-
-
-
-
       return true;
     }
 
@@ -260,6 +256,12 @@ public class Checker
           }
         }
       }
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='w')
+      {
+        return false;
+      }
       return true;
     }
     public boolean bbRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
@@ -323,7 +325,45 @@ public class Checker
           }
         }
       }
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='b')
+      {
+        return false;
+      }
       return true;
+    }
+
+    public boolean bkRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+        if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
+        {
+          return false;
+        }
+        String x = game[newRow][newCol];
+        System.out.println("x = "+x);
+        if(x.charAt(0)=='b')
+        {
+          return false;
+        }
+
+        return true;
+    }
+
+    public boolean wkRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+        if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
+        {
+          return false;
+        }
+        String x = game[newRow][newCol];
+        System.out.println("x = "+x);
+        if(x.charAt(0)=='w')
+        {
+          return false;
+        }
+
+        return true;
     }
 
 
@@ -498,6 +538,14 @@ public class Checker
           if(checker.equals("bb"))
           {
             return bbRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("bk"))
+          {
+            return bkRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("wk"))
+          {
+            return wkRules(game, newRow, newCol, oldRow, oldCol);
           }
 
 
