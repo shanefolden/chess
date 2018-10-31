@@ -280,9 +280,15 @@ public class Screen extends JPanel implements ActionListener
 
 
       g.drawImage(buffered,0,0,null);
-      needToStart = false;
+
+      needToStart=false;
+
     }
+
   }
+
+
+
 
   public void setPiece()
   {
@@ -332,12 +338,16 @@ public class Screen extends JPanel implements ActionListener
       s2 = t2.getText();
       boolean pieceExists;
 
-      pieceExists = checker.checkExistence( currentArray, s1);
+      pieceExists = checker.checkExistence( currentArray, s1,s2);
 
 
 
       if(pieceExists)
       {
+
+        System.out.println("s1 -"+s1);
+
+        System.out.println("s2 -"+s2);
         currentArray = move.movePiece(s1,s2, currentArray);
 
         screenPieceID = move.getPieceID();

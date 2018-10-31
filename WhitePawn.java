@@ -28,6 +28,10 @@ public class WhitePawn extends JPanel
     {
         row = a;
         col = b;
+        System.out.println("wp class");
+        System.out.println(row);
+        System.out.println(col);
+
 
     }
 
@@ -37,7 +41,7 @@ public class WhitePawn extends JPanel
     }
     public int returnCol()
     {
-        return col+5;
+        return 7-col;
     }
 
 
