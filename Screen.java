@@ -333,7 +333,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
 
       //  System.out.println("tempCol taken from wpawn"+tempCol+" inputted col "+screenPieceLocR);
 
-        if(tempRow==newScreenPieceLocR && tempCol==newScreenPieceLocC)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wpawn.remove(i);
         }
@@ -342,15 +342,11 @@ public class Screen extends JPanel implements ActionListener, MouseListener
 
     if(capturedPieceID.equals("bp"))
     {
-
-      System.out.println("newScreenPieceLocR "+newScreenPieceLocR);
-        System.out.println("newScreenPieceLocC "+newScreenPieceLocC);
       for(int i = 0; i<bpawn.size(); i++)
       {
         int tempRow = bpawn.get(i).returnRow();
         int tempCol = bpawn.get(i).returnCol();
-        System.out.println("tempRow "+tempRow);
-        System.out.println("tempCol "+tempCol);
+
 
         if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
@@ -367,7 +363,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = wrook.get(i).returnRow();
         int tempCol = wrook.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wrook.remove(i);
         }
@@ -380,7 +376,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = brook.get(i).returnRow();
         int tempCol = brook.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           brook.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
@@ -395,7 +391,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = bbishop.get(i).returnRow();
         int tempCol = bbishop.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           bbishop.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
@@ -409,7 +405,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = wbishop.get(i).returnRow();
         int tempCol = wbishop.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wbishop.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
@@ -424,7 +420,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = wking.get(i).returnRow();
         int tempCol = wking.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wking.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
@@ -438,7 +434,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = bking.get(i).returnRow();
         int tempCol = bking.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           bking.remove(i);
         }
@@ -452,7 +448,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = bqueen.get(i).returnRow();
         int tempCol = bqueen.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           bqueen.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
@@ -467,7 +463,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = wqueen.get(i).returnRow();
         int tempCol = wqueen.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wqueen.remove(i);
         }
@@ -480,7 +476,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = wknight.get(i).returnRow();
         int tempCol = wknight.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           wknight.remove(i);
         }
@@ -493,7 +489,7 @@ public class Screen extends JPanel implements ActionListener, MouseListener
       {
         int tempRow = bknight.get(i).returnRow();
         int tempCol = bknight.get(i).returnCol();
-        if(tempRow==newScreenPieceLocC && tempCol==newScreenPieceLocR)
+        if(tempCol==7-newScreenPieceLocR && tempRow==newScreenPieceLocC)
         {
           bknight.remove(i);
   //        System.out.println("splc"+screenPieceLocC+"splr "+screenPieceLocR);
