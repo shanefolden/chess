@@ -16,6 +16,7 @@ import java.awt.Font;
 public class Move
 {
   static  String pieceID = "";
+  static  String capturedPieceID = "";
   static String movedPos = "";
   static int oldCol;
   static int oldRow;
@@ -122,12 +123,19 @@ public class Move
 
           System.out.println(oldRow+" "+oldCol+" "+newRow+" "+newCol);
 
+          capturedPieceID = arr[newRow][newCol];
           arr[oldRow][oldCol] = "xx";
           arr[newRow][newCol] = checker;
 
 
         return arr;
 
+    }
+
+    public String getCapturedPieceID()
+    {
+      System.out.println("capturedPieceID: "+capturedPieceID);
+      return capturedPieceID;
     }
 
     public String getPieceID()

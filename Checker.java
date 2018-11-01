@@ -7,41 +7,86 @@ public class Checker
   int newCol;
   int oldRow;
   int oldCol;
-    public Checker()
-    {
+  int tempr;
+  int tempc;
+  public Checker()
+  {
 
-    }
+  }
 
-    public boolean wpRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
-    {
 
-      if(oldRow==6)
+
+
+
+
+  public boolean bnRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+  {
+
+       tempr = Math.abs(newRow - oldRow);
+       tempc = Math.abs(newCol - oldCol);
+      System.out.println("tempr "+tempr+"tempc "+tempc);
+      System.out.println("hello darkness");
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='b')
       {
-        if(newRow!=5&&newRow!=4)
-        {
+        return false;
+      }
+      if(tempr==2&&tempc==1||tempr==1&&tempc==2)
+      {
+        System.out.println("hello????");
 
-          System.out.println("exited here 1");
-          return false;
-        }
-        if(newRow==4)
+        return true;
+      }
+      return false;
+
+  }
+
+
+  public boolean wnRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+  {
+      int tempr = Math.abs(newRow - oldRow);
+      int tempc = Math.abs(newCol - oldCol);
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='w')
+      {
+        return false;
+      }
+      return ((tempr == 2 && tempc == 1) || (tempr == 1 && tempc == 2));
+
+  }
+
+  public boolean wpRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+  {
+
+    if(oldRow==6)
+    {
+      if(newRow!=5&&newRow!=4)
+      {
+
+        System.out.println("exited here 1");
+        return false;
+      }
+      if(newRow==4)
+      {
+        if(newCol!=oldCol)
         {
-          if(newCol!=oldCol)
-          {
-                System.out.println(newCol+"new old"+oldCol);
+          System.out.println(newCol+"new old"+oldCol);
+          return false;
+
+        }
+        if(!game[newRow][newCol].equals("xx"))
+        {
+          if(!game[5][newCol].equals("xx")){
+            System.out.println("exited here 3");
             return false;
 
           }
-          if(!game[newRow][newCol].equals("xx"))
-          {
-              if(!game[5][newCol].equals("xx")){
-                System.out.println("exited here 3");
-              return false;
 
-              }
-
-          }
-          else{
-            return true;}
+        }
+        else{
+          return true;}
         }
       }
 
@@ -52,19 +97,19 @@ public class Checker
 
       if(newCol==oldCol)
       {
-          if(!game[newRow][newCol].equals("xx"))
-          {
-            return false;
-          }
+        if(!game[newRow][newCol].equals("xx"))
+        {
+          return false;
+        }
       }
       if(newCol-oldCol==1||newCol-oldCol==-1)
       {
-          String x = game[newRow][newCol];
-          System.out.println("x = "+x);
-          if(x.charAt(0)!='b')
-          {
-            return false;
-          }
+        String x = game[newRow][newCol];
+        System.out.println("x = "+x);
+        if(x.charAt(0)!='b')
+        {
+          return false;
+        }
       }
       return true;
     }
@@ -206,15 +251,15 @@ public class Checker
       {
         if(newRow>oldRow)
         {
-            int j = 1;
-            for(int i = oldCol+1; i<newCol; i++)
+          int j = 1;
+          for(int i = oldCol+1; i<newCol; i++)
+          {
+            if(!game[oldRow+j][oldCol+j].equals("xx"))
             {
-              if(!game[oldRow+j][oldCol+j].equals("xx"))
-              {
-                return false;
-              }
-              j++;
+              return false;
             }
+            j++;
+          }
         }
         else if(oldRow>newRow)
         {
@@ -275,15 +320,15 @@ public class Checker
       {
         if(newRow>oldRow)
         {
-            int j = 1;
-            for(int i = oldCol+1; i<newCol; i++)
+          int j = 1;
+          for(int i = oldCol+1; i<newCol; i++)
+          {
+            if(!game[oldRow+j][oldCol+j].equals("xx"))
             {
-              if(!game[oldRow+j][oldCol+j].equals("xx"))
-              {
-                return false;
-              }
-              j++;
+              return false;
             }
+            j++;
+          }
         }
         else if(oldRow>newRow)
         {
@@ -336,34 +381,278 @@ public class Checker
 
     public boolean bkRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
     {
-        if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
-        {
-          return false;
-        }
-        String x = game[newRow][newCol];
-        System.out.println("x = "+x);
-        if(x.charAt(0)=='b')
-        {
-          return false;
-        }
+      if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
+      {
+        return false;
+      }
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='b')
+      {
+        return false;
+      }
 
-        return true;
+      return true;
     }
 
     public boolean wkRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
     {
-        if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
-        {
-          return false;
-        }
-        String x = game[newRow][newCol];
-        System.out.println("x = "+x);
-        if(x.charAt(0)=='w')
+      if(Math.abs(oldRow-newRow)>1||Math.abs(oldCol-newCol)>1)
+      {
+        return false;
+      }
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='w')
+      {
+        return false;
+      }
+
+      return true;
+    }
+
+    public boolean bqRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(oldCol!=newCol && oldRow!=newRow)
+      {
+        if(Math.abs(newCol-oldCol)!=Math.abs(newRow-oldRow))
         {
           return false;
         }
 
+        if(newCol>oldCol)
+        {
+          if(newRow>oldRow)
+          {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow+j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+          else if(oldRow>newRow)
+          {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow-j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+        }
+        if(oldCol>newCol)
+        {
+          if(newRow>oldRow)
+          {
+            int j = 1;
+            for(int i = newCol+1; i<oldCol; i++)
+            {
+              if(!game[oldRow+j][oldCol-j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+          else if(oldRow>newRow)
+          {
+            int j = 1;
+            for(int i = newCol+1; i<oldCol; i++)
+            {
+              if(!game[oldRow-j][oldCol-j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+        }
         return true;
+      }
+      if(newRow>oldRow)
+      {
+        for(int i = oldRow+1; i<newRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+      if(oldRow>newRow)
+      {
+        for(int i = newRow; i<oldRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      if(newCol>oldCol)
+      {
+        for(int i = oldCol+1; i<newCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            System.out.println("newRow "+newRow+" i "+i);
+            System.out.println(game[newRow][i]);
+            return false;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        for(int i = newCol; i<oldCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='b')
+      {
+        return false;
+      }
+
+      return true;
+
+
+
+    }
+
+    public boolean wqRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
+    {
+      if(oldCol!=newCol && oldRow!=newRow)
+      {
+        if(Math.abs(newCol-oldCol)!=Math.abs(newRow-oldRow))
+        {
+          return false;
+        }
+
+        if(newCol>oldCol)
+        {
+          if(newRow>oldRow)
+          {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow+j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+          else if(oldRow>newRow)
+          {
+            int j = 1;
+            for(int i = oldCol+1; i<newCol; i++)
+            {
+              if(!game[oldRow-j][oldCol+j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+        }
+        if(oldCol>newCol)
+        {
+          if(newRow>oldRow)
+          {
+            int j = 1;
+            for(int i = newCol+1; i<oldCol; i++)
+            {
+              if(!game[oldRow+j][oldCol-j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+          else if(oldRow>newRow)
+          {
+            int j = 1;
+            for(int i = newCol+1; i<oldCol; i++)
+            {
+              if(!game[oldRow-j][oldCol-j].equals("xx"))
+              {
+                return false;
+              }
+              j++;
+            }
+          }
+        }
+        return true;
+      }
+      if(newRow>oldRow)
+      {
+        for(int i = oldRow+1; i<newRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+      if(oldRow>newRow)
+      {
+        for(int i = newRow; i<oldRow; i++)
+        {
+          if(!game[i][newCol].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      if(newCol>oldCol)
+      {
+        for(int i = oldCol+1; i<newCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            System.out.println("newRow "+newRow+" i "+i);
+            System.out.println(game[newRow][i]);
+            return false;
+          }
+        }
+      }
+      if(oldCol>newCol)
+      {
+        for(int i = newCol; i<oldCol; i++)
+        {
+          if(!game[newRow][i].equals("xx"))
+          {
+            return false;
+          }
+        }
+      }
+
+      String x = game[newRow][newCol];
+      System.out.println("x = "+x);
+      if(x.charAt(0)=='w')
+      {
+        return false;
+      }
+
+      return true;
+
+
+
     }
 
 
@@ -383,53 +672,53 @@ public class Checker
         {
           if(newCol!=oldCol)
           {
-                System.out.println(newCol+"new old"+oldCol);
+            System.out.println(newCol+"new old"+oldCol);
             return false;
 
           }
           if(!game[newRow][newCol].equals("xx"))
           {
-              if(!game[2][newCol].equals("xx")){
-                System.out.println("exited here 3");
+            if(!game[2][newCol].equals("xx")){
+              System.out.println("exited here 3");
               return false;
 
-              }
+            }
 
           }
           else{
             return true;}
+          }
         }
-      }
 
-      if(newRow!=oldRow+1)
-      {
-        return false;
-      }
+        if(newRow!=oldRow+1)
+        {
+          return false;
+        }
 
-      if(newCol==oldCol)
-      {
+        if(newCol==oldCol)
+        {
           if(!game[newRow][newCol].equals("xx"))
           {
             return false;
           }
-      }
-      if(newCol-oldCol==1||newCol-oldCol==-1)
-      {
+        }
+        if(newCol-oldCol==1||newCol-oldCol==-1)
+        {
           String x = game[newRow][newCol];
           System.out.println("x = "+x);
           if(x.charAt(0)!='w')
           {
             return false;
           }
+        }
+        return true;
       }
-      return true;
-    }
 
-    public boolean checkExistence(String[][] game, String a, String b )
-    {
-      int charNum = -1;
+      public boolean checkExistence(String[][] game, String a, String b )
+      {
+        int charNum = -1;
 
-      System.out.println("input = "+a);
+        System.out.println("input = "+a);
 
         String checker = a.substring(0,2);
 
@@ -469,7 +758,7 @@ public class Checker
         }
 
 
-//string 2
+        //string 2
         if(b.charAt(0)=='A'||b.charAt(0)=='a')
         {
           newCol=0;
@@ -484,7 +773,7 @@ public class Checker
         }
         else if(b.charAt(0)=='D'||b.charAt(0)=='d')
         {
-        newCol=3;
+          newCol=3;
         }
         else if(b.charAt(0)=='E'||b.charAt(0)=='e')
         {
@@ -511,7 +800,7 @@ public class Checker
         int num2 = 8-(Integer.parseInt(toNum));
         oldRow = num2;
         oldCol = charNum;
-         newRow = 8-(Integer.parseInt( Character.toString(b.charAt(1))));
+        newRow = 8-(Integer.parseInt( Character.toString(b.charAt(1))));
 
         if(game[num2][charNum].equals(checker))
         {
@@ -547,6 +836,22 @@ public class Checker
           {
             return wkRules(game, newRow, newCol, oldRow, oldCol);
           }
+          if(checker.equals("wq"))
+          {
+            return wqRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("bq"))
+          {
+            return bqRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("wn"))
+          {
+            return wnRules(game, newRow, newCol, oldRow, oldCol);
+          }
+          if(checker.equals("bn"))
+          {
+            return bnRules(game, newRow, newCol, oldRow, oldCol);
+          }
 
 
 
@@ -563,4 +868,4 @@ public class Checker
         }
 
       }
-}
+    }
