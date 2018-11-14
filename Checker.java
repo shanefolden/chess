@@ -22,38 +22,38 @@ public class Checker
   public boolean bnRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
   {
 
-       tempr = Math.abs(newRow - oldRow);
-       tempc = Math.abs(newCol - oldCol);
-      System.out.println("tempr "+tempr+"tempc "+tempc);
-      System.out.println("hello darkness");
-      String x = game[newRow][newCol];
-      System.out.println("x = "+x);
-      if(x.charAt(0)=='b')
-      {
-        return false;
-      }
-      if(tempr==2&&tempc==1||tempr==1&&tempc==2)
-      {
-        System.out.println("hello????");
-
-        return true;
-      }
+    tempr = Math.abs(newRow - oldRow);
+    tempc = Math.abs(newCol - oldCol);
+    System.out.println("tempr "+tempr+"tempc "+tempc);
+    System.out.println("hello darkness");
+    String x = game[newRow][newCol];
+    System.out.println("x = "+x);
+    if(x.charAt(0)=='b')
+    {
       return false;
+    }
+    if(tempr==2&&tempc==1||tempr==1&&tempc==2)
+    {
+      System.out.println("hello????");
+
+      return true;
+    }
+    return false;
 
   }
 
 
   public boolean wnRules(String[][] game, int newRow, int newCol, int oldRow, int oldCol)
   {
-      int tempr = Math.abs(newRow - oldRow);
-      int tempc = Math.abs(newCol - oldCol);
-      String x = game[newRow][newCol];
-      System.out.println("x = "+x);
-      if(x.charAt(0)=='w')
-      {
-        return false;
-      }
-      return ((tempr == 2 && tempc == 1) || (tempr == 1 && tempc == 2));
+    int tempr = Math.abs(newRow - oldRow);
+    int tempc = Math.abs(newCol - oldCol);
+    String x = game[newRow][newCol];
+    System.out.println("x = "+x);
+    if(x.charAt(0)=='w')
+    {
+      return false;
+    }
+    return ((tempr == 2 && tempc == 1) || (tempr == 1 && tempc == 2));
 
   }
 
@@ -64,7 +64,6 @@ public class Checker
     {
       if(newRow!=5&&newRow!=4)
       {
-
         System.out.println("exited here 1");
         return false;
       }
@@ -102,7 +101,7 @@ public class Checker
           return false;
         }
       }
-      if(newCol-oldCol==1||newCol-oldCol==-1)
+      if(newCol-oldCol==1||oldCol-newCol==1)
       {
         String x = game[newRow][newCol];
         System.out.println("x = "+x);
@@ -111,6 +110,11 @@ public class Checker
           return false;
         }
       }
+      if(Math.abs(newCol-oldCol)>1)
+      {
+        return false;
+      }
+
       return true;
     }
 
@@ -710,6 +714,11 @@ public class Checker
           {
             return false;
           }
+        }
+
+        if(Math.abs(newCol-oldCol)>1)
+        {
+          return false;
         }
         return true;
       }

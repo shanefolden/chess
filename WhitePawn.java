@@ -9,50 +9,50 @@ import javax.imageio.ImageIO;
 
 public class WhitePawn extends JPanel
 {
-   BufferedImage buffered;
-    private BufferedImage wpawnImg;
-    int row;
-    int col;
+  BufferedImage buffered;
+  private BufferedImage wpawnImg;
+  int row;
+  int col;
 
-    public WhitePawn()
-    {
+  public WhitePawn()
+  {
 
-      try {
-           wpawnImg = ImageIO.read(new File("wpawn.png"));
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+    try {
+      wpawnImg = ImageIO.read(new File("wpawn.png"));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-    public void getPosition(int a, int b)
-    {
-        row = a;
-        col = b;
-        System.out.println("wp class");
-        System.out.println(row);
-        System.out.println(col);
-
-
-    }
-
-    public int returnRow()
-    {
-        return row;
-    }
-    public int returnCol()
-    {
-        return 7-col;
-    }
+  public void getPosition(int a, int b)
+  {
+    row = a;
+    col = b;
+    System.out.println("wp class");
+    System.out.println(row);
+    System.out.println(col);
 
 
-    public void drawMe(Graphics g)
-    {
-         //super.paintComponent(g);
-         g.setColor(Color.black);
-         g.drawImage(wpawnImg, 60 + 79*row, 610-(78*col), 75,75,null);
+  }
 
-         //System.out.println("check");
+  public int returnRow()
+  {
+    return row;
+  }
+  public int returnCol()
+  {
+    return 7-col;
+  }
 
-    }
+
+  public void drawMe(Graphics g)
+  {
+    //super.paintComponent(g);
+    g.setColor(Color.black);
+    g.drawImage(wpawnImg, 60 + 79*row, 610-(78*col), 75,75,null);
+
+    //System.out.println("check");
+
+  }
 
 }

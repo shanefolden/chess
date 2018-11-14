@@ -15,24 +15,24 @@ public class UI extends JPanel
 
 
 
-    public UI()
-    {
+  public UI()
+  {
 
 
 
-    } /*
+  } /*
 
-    public void text()
-    {
-      this.setLayout(null);
-      t1 = new JTextField(20);
-      t1.setBounds(600,50, 80, 30);
-      this.add(t1);
+  public void text()
+  {
+  this.setLayout(null);
+  t1 = new JTextField(20);
+  t1.setBounds(600,50, 80, 30);
+  this.add(t1);
 
-      this.setFocusable(true);
-      System.out.println("hello?");
+  this.setFocusable(true);
+  System.out.println("hello?");
 
-    }
+}
 
-    */
+*/
 }
